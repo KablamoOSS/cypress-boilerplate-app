@@ -1,0 +1,26 @@
+# This is is an example of running the cypress tests in AWS CI/CD, with a little configuration in codebuild 
+# this build is triggered post deployment. It installs yarn, verifies cypress is installed, cleans previous reports,
+# runs the e2e cypress tests, then creates test report and dumps it into a S3 bucket to be accessed easily through Slack.
+version: 0.2
+
+env:
+  variables:
+    TZ: 'Australia/Sydney'
+phases:
+  install:
+    runtime-versions:
+      nodejs: latest
+    commands:
+      - yarn install
+  pre_build:
+    commands:
+      - yarn cy:verify
+      - yarn cy:clean:reports
+  build:
+    commands:
+      - yarn cy:run || true
+      - yarn cy:report
+  post_build:
+    commands:
+      - ls cypress/reports/mochareports
+      - aws s3 cp cypress/reports/mochareports/ s3://$REPORTS_BUCKET/cypress-report/ --recursive --acl public-read || true

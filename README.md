@@ -95,7 +95,7 @@ yarn dev
 ### Start Cypress
 
 ```shell
-yarn cypress:open
+yarn cy:open
 ```
 
 > 🚩 **Note**
@@ -179,7 +179,7 @@ A [guide has been written with detail around adapting the RWA](http://on.cypress
 
 Prerequisites include an Auth0 account and a Tenant configured for use with a SPA. Environment variables from Auth0 are to be placed in the [.env](./.env).
 
-Start the application with `yarn dev:auth0` and run Cypress with `yarn cypress:open`.
+Start the application with `yarn dev:auth0` and run Cypress with `yarn cy:open`.
 
 The only passing spec on this branch will be the [auth0 spec](./cypress/tests/ui-auth-providers/auth0.spec.ts); all others will fail.
 
@@ -189,7 +189,7 @@ A [guide has been written with detail around adapting the RWA](http://on.cypress
 
 Prerequisites include an [Okta][okta] account and [application configured for use with a SPA][oktacreateapp]. Environment variables from [Okta][okta] are to be placed in the [.env](./.env).
 
-Start the application with `yarn dev:okta` and run Cypress with `yarn cypress:open`.
+Start the application with `yarn dev:okta` and run Cypress with `yarn cy:open`.
 
 The **only passing spec on this branch** will be the [okta spec](./cypress/tests/ui-auth-providers/okta.spec.ts); all others will fail.
 
@@ -199,7 +199,7 @@ A [guide has been written with detail around adapting the RWA](http://on.cypress
 
 Prerequisites include an [Amazon Cognito][cognito] account. Environment variables from [Amazon Cognito][cognito] are provided by the [AWS Amplify CLI][awsamplify].
 
-Start the application with `yarn dev:cognito` and run Cypress with `yarn cypress:open`.
+Start the application with `yarn dev:cognito` and run Cypress with `yarn cy:open`.
 
 The **only passing spec on this branch** will be the [cognito spec](./cypress/tests/ui-auth-providers/cognito.spec.ts); all others will fail.
 
@@ -209,7 +209,7 @@ A [guide has been written with detail around adapting the RWA](https://docs.cypr
 
 Prerequisites include an [Google][google] account. Environment variables from [Google][google] are to be placed in the [.env](./.env).
 
-Start the application with `yarn dev:google` and run Cypress with `yarn cypress:open`.
+Start the application with `yarn dev:google` and run Cypress with `yarn cy:open`.
 
 The **only passing spec** when run with `yarn dev:google` will be the [google spec](./cypress/tests/ui-auth-providers/google.spec.ts); all others will fail.
 

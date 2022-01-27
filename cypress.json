@@ -3,7 +3,7 @@
   "projectId": "7s5okt",
   "integrationFolder": "cypress/tests",
   "viewportHeight": 1000,
-  "viewportWidth": 1280,
+  "viewportWidth": 1280,  
   "retries": {
     "runMode": 2,
     "openMode": 1
@@ -16,5 +16,20 @@
       "url": "http://localhost:3001/__coverage__"
     }
   },
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "reporterEnabled": "mochawesome",
+    "mochawesomeReporterOptions": {
+      "reportDir": "cypress/reports/mocha",
+      "quite": true,
+      "overwrite": false,
+      "html": false,
+      "json": true
+    }
+  },
+  "screenshotOnRunFailure": true,
+  "screenshotsFolder": "cypress/reports/mochareports/assets",
+  "video": false,
+  "testFiles": "**/*.spec.ts",
   "experimentalStudio": true
 }

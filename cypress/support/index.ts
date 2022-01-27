@@ -2,6 +2,7 @@
 import "@cypress/code-coverage/support";
 import "./commands";
 import { isMobile } from "./utils";
+import addContext from "mochawesome/addContext";
 
 beforeEach(() => {
   // cy.intercept middleware to remove 'if-none-match' headers from all requests
@@ -19,5 +20,14 @@ beforeEach(() => {
         res.setThrottle(1000);
       });
     });
+  }
+});
+
+Cypress.on("test:after:run", (test, runnable) => {
+  if (test.state === "failed") {
+    const screenshot = `${Cypress.config("screenshotsFolder")}/${Cypress.spec.name}/${
+      runnable.parent.title
+    } -- ${test.title} (failed).png`;
+    addContext({ test }, screenshot);
   }
 });
