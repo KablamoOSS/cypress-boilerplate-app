@@ -1,4 +1,4 @@
-# Kablamo DAM Integration Tests using Cypress
+# Integration Tests using Cypress
 
 Cypress is a fast, easy and reliable testing for anything that runs in a browser.
 
